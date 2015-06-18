@@ -1,0 +1,37 @@
+
+public class Find_Minimum_in_Rotated_Sorted_Array_II {
+
+	/**
+	 * Suppose a sorted array is rotated at some pivot unknown to you beforehand.
+
+(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
+
+Find the minimum element.
+
+The array may contain duplicates.
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] num={4, 5, 6, 7, 0, 1, 2,4,4,4};
+		System.out.println(findMin(num));
+	}
+	
+    public static int findMin(int[] num) {
+        int left=0;
+        int right=num.length-1;
+        int middle;
+        while(left<right){
+        	middle=left+(right-left)/2;
+        	if(num[middle]<num[right]){
+        		right=middle;
+        	}
+        	else if(num[middle]>num[right]){
+        		left=middle+1;
+        	}
+        	else{
+        		right--;
+        	}
+        }
+        return num[left];
+    }
+}
