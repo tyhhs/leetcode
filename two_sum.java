@@ -1,3 +1,7 @@
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 public class two_sum {
 
 	/**
@@ -21,7 +25,7 @@ public class two_sum {
 		index=twoSum(input,target);
 		System.out.println(index[0]+"@"+index[1]);
 	}
-		public static int[] twoSum(int[] numbers, int target) {
+/*		public static int[] twoSum(int[] numbers, int target) {
 			int index[]=new int[2];
 			int find;
 			for(int i=0;i<numbers.length;i++){
@@ -35,6 +39,45 @@ public class two_sum {
 				}
 			}
 			return null;
+		}*/
+	
+/*	public static int[] twoSum(int[] numbers, int target) {
+		int start=0;
+		int end=numbers.length-1;
+		int[] res=new int[2];
+		Arrays.sort(numbers);
+		while(start<end){
+			int sum=numbers[start]+numbers[end];
+			if(sum==target){
+				res[0]=start+1;
+				res[1]=end+1;
+				return res;
+			}
+			else if(sum<target){
+				start++;
+			}
+			else{
+				end--;
+			}
 		}
+		return res;
+	}*/
+	public static int[] twoSum(int[] numbers, int target) {
+		 Map<Integer,Integer> map=new HashMap<Integer,Integer>();
+		 int[] res=new int[2];
+		 int rest;
+		 for(int i=0;i<numbers.length;i++){
+			 rest=target-numbers[i];
+			 if(map.containsKey(rest)){
+				 res[0]=map.get(rest)+1;
+				 res[1]=i+1;
+				 return res;
+			 }
+			 else{
+				 map.put(numbers[i], i);
+			 }
+		 }
+		 return res;
 	}
+}
 
