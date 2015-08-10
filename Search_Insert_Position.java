@@ -13,7 +13,6 @@ Here are few examples.
 [1,3,5,6], 0 → 0
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int[] A={1,3,5,6};
 		System.out.println(searchInsert(A,0));
 	}
